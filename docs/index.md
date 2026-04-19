@@ -1,5 +1,4 @@
 ---
-template: overrides/main.html
 title: PointWorks - 专业三维点云处理软件
 ---
 
