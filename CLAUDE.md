@@ -12,16 +12,16 @@ Related code repository: [CloudTool2](https://github.com/TestDemoCommunity/Cloud
 
 ```bash
 # Install dependencies
-pip install -r requirements.txt
+npm install
 
-# Local dev server (auto-reloads on file changes, http://127.0.0.1:8000)
-mkdocs serve
+# Local dev server (auto-reloads, http://localhost:3000)
+npm start
 
-# Production build (output to site/)
-mkdocs build
+# Production build (output to build/)
+npm run build
 ```
 
-No JS tooling, no Makefile, no package.json — pure Python/MkDocs project.
+Note: Node.js v25+ requires `--localstorage-file` flag (handled in npm scripts). webpackbar has a compatibility patch applied via `node_modules/webpackbar/dist/index.cjs`.
 
 ## Architecture
 
