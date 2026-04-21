@@ -8,8 +8,23 @@
   margin: 0 auto;
   padding: 48px 32px;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(79, 143, 247, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%);
-  border: 1px solid rgba(79, 143, 247, 0.15);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 400px 300px at 30% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 70% 50%, rgba(123, 97, 255, 0.06) 0%, transparent 70%);
+  border: 1px solid rgba(0, 212, 255, 0.12);
+}
+
+.inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-cyan), var(--color-accent-violet), transparent);
+  opacity: 0.4;
 }
 
 .title {
@@ -20,7 +35,7 @@
 
 .desc {
   font-size: 1rem;
-  color: var(--ifm-color-secondary);
+  color: var(--color-text-secondary);
   margin: 0 0 32px;
   line-height: 1.6;
 }
@@ -35,35 +50,57 @@
 .btnDownload {
   display: inline-flex;
   align-items: center;
-  padding: 12px 36px;
-  border-radius: 8px;
+  padding: 14px 36px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  background: linear-gradient(135deg, #4f8ff7 0%, #6366f1 100%);
+  background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-violet) 100%);
   color: #fff;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .btnDownload:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(79, 143, 247, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.08);
 }
 
 .btnDocs {
   display: inline-flex;
   align-items: center;
-  padding: 12px 36px;
-  border-radius: 8px;
+  padding: 14px 36px;
+  border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--ifm-color-primary);
-  border: 1px solid rgba(79, 143, 247, 0.3);
-  transition: transform 0.2s, background 0.2s;
+  color: var(--color-accent-cyan);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  transition: transform 0.25s, background 0.25s, border-color 0.25s;
 }
 
 .btnDocs:hover {
   transform: translateY(-2px);
-  background: rgba(79, 143, 247, 0.08);
+  background: rgba(0, 212, 255, 0.06);
+  border-color: rgba(0, 212, 255, 0.45);
+}
+
+[data-theme='light'] .inner {
+  background:
+    radial-gradient(ellipse 400px 300px at 30% 50%, rgba(0, 180, 220, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 70% 50%, rgba(123, 97, 255, 0.04) 0%, transparent 70%);
+  border-color: rgba(0, 140, 180, 0.15);
+}
+
+[data-theme='light'] .desc {
+  color: rgba(30, 41, 59, 0.6);
+}
+
+[data-theme='light'] .btnDocs {
+  color: #0088aa;
+  border-color: rgba(0, 140, 180, 0.25);
+}
+
+[data-theme='light'] .btnDocs:hover {
+  background: rgba(0, 140, 180, 0.05);
+  border-color: rgba(0, 140, 180, 0.4);
 }

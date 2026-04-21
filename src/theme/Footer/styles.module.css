@@ -1,0 +1,7 @@
+.glowLine {
+  height: 1px;
+  margin: 0 auto;
+  max-width: 600px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-cyan), var(--color-accent-violet), transparent);
+  opacity: 0.3;
+}

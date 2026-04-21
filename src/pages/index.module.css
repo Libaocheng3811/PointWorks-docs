@@ -12,11 +12,12 @@
   font-weight: 700;
   text-align: center;
   margin: 0 0 12px;
+  letter-spacing: -0.01em;
 }
 
 .sectionDesc {
   font-size: 1rem;
-  color: var(--ifm-color-secondary);
+  color: var(--color-text-secondary);
   text-align: center;
   margin: 0 0 48px;
 }

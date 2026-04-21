@@ -162,7 +162,7 @@ export default {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} PointWorks Team. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} PointWorks Team`,
     },
   },
 };
