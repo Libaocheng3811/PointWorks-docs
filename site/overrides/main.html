@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block announce %}
+  {% if config.extra.announce %}
+    <p>{{ config.extra.announce }}</p>
+  {% endif %}
+{% endblock %}
