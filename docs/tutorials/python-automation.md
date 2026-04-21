@@ -1,3 +1,7 @@
+---
+title: Python 自动化实战
+---
+
 # Python 自动化实战
 
 本教程介绍如何使用 PointWorks 的嵌入式 Python 环境编写脚本，实现点云处理的自动化和批量操作。
@@ -24,9 +28,10 @@ PointWorks 的 Python 环境是嵌入式解释器，而非系统 Python：
 | 执行方式 | GUI 控制台或编辑器 |
 | 线程安全 | 脚本在后台 QThread 中执行 |
 
-!!! info "系统依赖"
-    PointWorks 嵌入式 Python 会加载系统 Python 3.9 安装的第三方包。确保系统 Python 3.9 环境中安装了 `numpy` 等常用库。
+:::info[系统依赖]
+PointWorks 嵌入式 Python 会加载系统 Python 3.9 安装的第三方包。确保系统 Python 3.9 环境中安装了 `numpy` 等常用库。
 
+:::
 ## 使用 Python 控制台
 
 ### 打开控制台
@@ -59,7 +64,7 @@ if cloud is not None:
 - 脚本加载/保存
 - 一键执行
 
-详见 [Python 编辑器使用](../advanced/python-scripting/editor.md)。
+详见 [Python 编辑器使用](../advanced/python-scripting/editor)。
 
 ## Python API 参考
 
@@ -103,9 +108,10 @@ colors = cloud.get_colors()   # numpy.ndarray, shape (N, 3), dtype uint8
 normals = cloud.get_normals() # numpy.ndarray, shape (N, 3), dtype float32
 ```
 
-!!! warning "内存注意"
-    `to_numpy()` 和 `get_colors()` 会合并所有 Block 数据，产生完整拷贝。对于大点云（> 1000 万点），可能导致内存不足。建议使用按 Block 访问方式。
+:::warning[内存注意]
+`to_numpy()` 和 `get_colors()` 会合并所有 Block 数据，产生完整拷贝。对于大点云（> 1000 万点），可能导致内存不足。建议使用按 Block 访问方式。
 
+:::
 #### 按 Block 零拷贝访问
 
 ```python
@@ -289,16 +295,17 @@ filter_by_distance("my_cloud", (0.0, 0.0, 0.0), 100.0)
 
 ## 线程安全注意事项
 
-!!! danger "GIL 约束"
-    Python 脚本在后台 `QThread`（`PythonWorker`）中执行。以下规则必须遵守：
+:::danger[GIL 约束]
+Python 脚本在后台 `QThread`（`PythonWorker`）中执行。以下规则必须遵守：
 
+:::
     1. **不要直接操作 UI** - 使用 `PythonBridge` 信号机制
     2. **脚本支持取消** - 长时间运行的脚本应检查取消标志
     3. **点云引用保护** - 获取的 `ct.Cloud` 在脚本执行期间被自动 hold，不会被 UI 删除
 
 ## 下一步
 
-- [Python 控制台使用](../advanced/python-scripting/console.md) - 控制台详细说明
-- [Python 编辑器使用](../advanced/python-scripting/editor.md) - 编辑器详细说明
-- [Python API 参考](../advanced/python-scripting/api-reference.md) - 完整 API 文档
-- [扩展 Python API](../development/extending-python.md) - 如何添加新的 Python 绑定
+- [Python 控制台使用](../advanced/python-scripting/console) - 控制台详细说明
+- [Python 编辑器使用](../advanced/python-scripting/editor) - 编辑器详细说明
+- [Python API 参考](../advanced/python-scripting/api-reference) - 完整 API 文档
+- [扩展 Python API](../development/extending-python) - 如何添加新的 Python 绑定

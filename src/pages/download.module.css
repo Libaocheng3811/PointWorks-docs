@@ -1,0 +1,124 @@
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.heroTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.heroDesc {
+  font-size: 1.05rem;
+  color: var(--ifm-color-secondary);
+  margin: 0;
+}
+
+.platforms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.platformCard {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.platformCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.platformIcon {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.platformName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.platformArch {
+  font-size: 0.8rem;
+  color: var(--ifm-color-secondary);
+  margin: 0 0 16px;
+}
+
+.downloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.downloadBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(79, 143, 247, 0.3);
+}
+
+.downloadBtnDisabled {
+  composes: downloadBtn;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.requirements {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--ifm-background-secondary);
+}
+
+.requirements p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+.checksum {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  color: var(--ifm-color-secondary);
+  margin-top: 12px;
+  word-break: break-all;
+}
+
+.olderVersions {
+  text-align: center;
+  padding: 32px;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+@media (max-width: 600px) {
+  .platforms { grid-template-columns: 1fr; }
+}

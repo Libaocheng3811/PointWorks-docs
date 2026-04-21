@@ -1,3 +1,7 @@
+---
+title: 项目架构说明
+---
+
 # 项目架构说明
 
 本文详细介绍 PointWorks 的项目架构设计，包括模块划分、依赖关系和核心设计模式。
@@ -43,11 +47,12 @@ pybind11::embed      PCL, VTK, OpenMP
 
 **外部依赖**: Qt5, VTK, PCL, OpenMP, pybind11, Python3, LASlib, E57Format, CSF
 
-!!! danger "分层原则"
-    - **`libs/` 严禁依赖 `src/`** -- 核心库完全独立于界面逻辑
-    - **`libs/` 内部单向依赖** -- 按依赖方向引用
-    - **`src/` 可依赖 `libs/` 的所有模块**
+:::danger[分层原则]
+- **`libs/` 严禁依赖 `src/`** -- 核心库完全独立于界面逻辑
+- **`libs/` 内部单向依赖** -- 按依赖方向引用
+- **`src/` 可依赖 `libs/` 的所有模块**
 
+:::
 ## 库模块详解
 
 ### ct_core (libs/core/) -- SHARED
@@ -85,9 +90,10 @@ pybind11::embed      PCL, VTK, OpenMP
 | `textured_mesh.h` | 纹理网格数据结构 |
 | `projectfile.h/cpp` | 项目文件保存/加载 |
 
-!!! info "自动源文件收集"
-    ct_io 的 CMakeLists.txt 使用 `file(GLOB *.cpp)`，新增 .cpp 文件无需手动注册。
+:::info[自动源文件收集]
+ct_io 的 CMakeLists.txt 使用 `file(GLOB *.cpp)`，新增 .cpp 文件无需手动注册。
 
+:::
 ### ct_algorithm (libs/algorithm/) -- STATIC
 
 点云处理算法模块。
@@ -141,9 +147,10 @@ pybind11::embed      PCL, VTK, OpenMP
 | `python_bridge.h/cpp` | 信号桥接 + 线程安全云注册表 |
 | `python_bindings.cpp` | pybind11 模块 `ct` |
 
-!!! info "OBJECT 库"
-    ct_python 编译为 OBJECT 库，编译产物直接链接到 pointworks 可执行文件，不产生独立的 .dll/.lib。
+:::info[OBJECT 库]
+ct_python 编译为 OBJECT 库，编译产物直接链接到 pointworks 可执行文件，不产生独立的 .dll/.lib。
 
+:::
 ## 应用层 (src/)
 
 ### app/ -- 主程序
@@ -217,13 +224,14 @@ PythonConsole、PythonEditor
 | 工作线程 | 耗时算法 | QThread + Worker 模式 |
 | Python 线程 | 脚本执行 | PythonWorker（持有 GIL） |
 
-!!! danger "线程安全规则"
-    - 耗时算法严禁在 UI 主线程执行
-    - Python 代码只在 PythonWorker 中持有 GIL 执行
-    - UI 操作只通过信号/槽在主线程执行
+:::danger[线程安全规则]
+- 耗时算法严禁在 UI 主线程执行
+- Python 代码只在 PythonWorker 中持有 GIL 执行
+- UI 操作只通过信号/槽在主线程执行
 
+:::
 ## 相关主题
 
-- [编译构建](build.md) - 如何编译项目
-- [添加新算法](adding-algorithm.md) - 扩展算法模块
-- [插件开发](../advanced/plugin-development/index.md) - 开发自定义插件
+- [编译构建](build) - 如何编译项目
+- [添加新算法](adding-algorithm) - 扩展算法模块
+- [插件开发](../advanced/plugin-development/intro) - 开发自定义插件

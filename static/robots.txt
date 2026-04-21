@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://libaocheng3811.github.io/PointWorks-docs/sitemap.xml

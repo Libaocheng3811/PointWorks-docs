@@ -1,0 +1,32 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionGap {
+  padding: 60px 0;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.sectionDesc {
+  font-size: 1rem;
+  color: var(--ifm-color-secondary);
+  text-align: center;
+  margin: 0 0 48px;
+}
+
+.featuresSection {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle { font-size: 1.5rem; }
+  .featuresSection { padding: 48px 0; }
+  .sectionGap { padding: 40px 0; }
+}

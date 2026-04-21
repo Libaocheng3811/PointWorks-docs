@@ -1,3 +1,7 @@
+---
+title: Python 编辑器使用
+---
+
 # Python 编辑器使用
 
 本文介绍 PointWorks 内置的 Python 脚本编辑器。
@@ -108,12 +112,13 @@ else:
 
 ## 后台执行
 
-!!! info "线程模型"
-    脚本在 `PythonWorker`（`QThread`）中执行，持有 Python GIL。这意味着：
-    - 脚本执行不会阻塞 UI 主线程
-    - 脚本执行期间用户可以正常操作界面
-    - 同时只允许一个脚本执行
+:::info[线程模型]
+脚本在 `PythonWorker`（`QThread`）中执行，持有 Python GIL。这意味着：
+- 脚本执行不会阻塞 UI 主线程
+- 脚本执行期间用户可以正常操作界面
+- 同时只允许一个脚本执行
 
+:::
 ## 脚本模板
 
 ### 基本处理模板
@@ -197,15 +202,16 @@ safe_process("my_cloud")
 
 ## 最佳实践
 
-!!! tip "编写高质量脚本"
-    1. **总是检查 None** - `ct.get_cloud()` 可能返回 None
-    2. **使用 Block 遍历** - 避免对大点云使用 `to_numpy()` 全量拷贝
-    3. **输出进度** - 长时间运行时定期 `ct.printI()` 输出进度
-    4. **错误处理** - 使用 try/except 捕获异常，避免脚本静默失败
-    5. **保存脚本** - 编辑完成后保存为 `.py` 文件，便于复用和版本管理
+:::tip[编写高质量脚本]
+1. **总是检查 None** - `ct.get_cloud()` 可能返回 None
+2. **使用 Block 遍历** - 避免对大点云使用 `to_numpy()` 全量拷贝
+3. **输出进度** - 长时间运行时定期 `ct.printI()` 输出进度
+4. **错误处理** - 使用 try/except 捕获异常，避免脚本静默失败
+5. **保存脚本** - 编辑完成后保存为 `.py` 文件，便于复用和版本管理
 
+:::
 ## 相关主题
 
-- [Python 控制台](console.md) - 交互式 Python shell
-- [Python API 参考](api-reference.md) - 完整 API 文档
-- [Python 自动化实战](../../tutorials/python-automation.md) - 实战脚本示例
+- [Python 控制台](console) - 交互式 Python shell
+- [Python API 参考](api-reference) - 完整 API 文档
+- [Python 自动化实战](../../tutorials/python-automation) - 实战脚本示例

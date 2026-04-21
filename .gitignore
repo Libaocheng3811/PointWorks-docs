@@ -1,7 +1,30 @@
-site/
-.venv/
-__pycache__/
-*.pyc
+# Dependencies
+node_modules/
+
+# Build output
+build/
+.docusaurus/
+
+# Cache
+.cache-loader/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Plan docs (design only, not deployed)
+planDocs/
+
+# Claude local settings
 .claude/settings.local.json
-/planDocs

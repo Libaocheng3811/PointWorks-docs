@@ -1,3 +1,7 @@
+---
+title: 地面滤波实战
+---
+
 # 地面滤波实战
 
 本教程介绍如何使用 PointWorks 的 CSF（布料模拟滤波）插件从原始点云中提取地面点。
@@ -13,9 +17,10 @@
 
 PointWorks 内置 **CSF（Cloth Simulation Filter）** 算法，该算法通过模拟一块虚拟布料从上方落下到点云表面，布料的最终形状即为地面。
 
-!!! info "CSF 算法原理"
-    CSF 由 Zhang 等人（2016）提出，核心思想是将地形表面视为一块"布料"，通过物理模拟（重力、碰撞、刚度）让布料贴合最低点，从而区分地面点和非地面点。
+:::info[CSF 算法原理]
+CSF 由 Zhang 等人（2016）提出，核心思想是将地形表面视为一块"布料"，通过物理模拟（重力、碰撞、刚度）让布料贴合最低点，从而区分地面点和非地面点。
 
+:::
 ## 数据准备
 
 ### 推荐数据特征
@@ -55,24 +60,27 @@ CSF 插件提供以下可调参数：
 
 ### 4. 参数调优建议
 
-!!! tip "平坦地形"
-    对于平坦地形（如平原、广场）：
-    - `cloth_resolution`: 1.0 ~ 2.0
-    - `rigidness`: 1 或 2
-    - `class_threshold`: 0.3 ~ 0.5
+:::tip[平坦地形]
+对于平坦地形（如平原、广场）：
+- `cloth_resolution`: 1.0 ~ 2.0
+- `rigidness`: 1 或 2
+- `class_threshold`: 0.3 ~ 0.5
 
-!!! tip "复杂地形"
-    对于复杂地形（如山区、陡坡）：
-    - `cloth_resolution`: 0.5 ~ 1.0
-    - `rigidness`: 2 或 3
-    - `iterations`: 500 ~ 1000
-    - `class_threshold`: 0.5 ~ 1.0
+:::
+:::tip[复杂地形]
+对于复杂地形（如山区、陡坡）：
+- `cloth_resolution`: 0.5 ~ 1.0
+- `rigidness`: 2 或 3
+- `iterations`: 500 ~ 1000
+- `class_threshold`: 0.5 ~ 1.0
 
-!!! warning "rigidness 选择"
-    - `rigidness = 1`（松软）：适合平坦地形，布料能更好地贴合地面细节
-    - `rigidness = 2`（适中）：通用选择，适合大多数场景
-    - `rigidness = 3`（坚硬）：适合陡峭地形，防止布料穿过山坡
+:::
+:::warning[rigidness 选择]
+- `rigidness = 1`（松软）：适合平坦地形，布料能更好地贴合地面细节
+- `rigidness = 2`（适中）：通用选择，适合大多数场景
+- `rigidness = 3`（坚硬）：适合陡峭地形，防止布料穿过山坡
 
+:::
 ### 5. 执行滤波
 
 1. 点击 **Apply** 按钮
@@ -142,9 +150,10 @@ for filename in os.listdir(input_dir):
 ct.printI("Batch processing complete!")
 ```
 
-!!! info "Python 自动化"
-    完整的 Python 自动化工作流请参考 [Python 自动化实战](python-automation.md)。
+:::info[Python 自动化]
+完整的 Python 自动化工作流请参考 [Python 自动化实战](python-automation)。
 
+:::
 ## 常见问题
 
 ### 地面点提取不完整？
@@ -167,5 +176,5 @@ ct.printI("Batch processing complete!")
 
 ## 下一步
 
-- [植被分割](../advanced/plugin-development/index.md) - 从非地面点中提取植被
-- [变化检测实战](change-detect-tutorial.md) - 对比不同时期的地面变化
+- [植被分割](../advanced/plugin-development/intro) - 从非地面点中提取植被
+- [变化检测实战](change-detect-tutorial) - 对比不同时期的地面变化

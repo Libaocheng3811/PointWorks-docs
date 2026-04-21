@@ -1,3 +1,7 @@
+---
+title: 添加新算法
+---
+
 # 添加新算法
 
 本文介绍如何为 PointWorks 添加新的点云处理算法。
@@ -106,9 +110,10 @@ target_sources(ct_algorithm PRIVATE
 )
 ```
 
-!!! info "CMake 注意"
-    ct_algorithm 的 CMakeLists.txt 可能使用 `file(GLOB ...)` 自动收集源文件。如果不是，需手动添加。
+:::info[CMake 注意]
+ct_algorithm 的 CMakeLists.txt 可能使用 `file(GLOB ...)` 自动收集源文件。如果不是，需手动添加。
 
+:::
 ### 第二步：创建 UI 工具对话框
 
 #### 2.1 创建工具文件
@@ -261,11 +266,12 @@ cmake --build build --config Release
 
 ## PCL 开发规范
 
-!!! danger "核心约束"
-    1. **智能指针**: 严禁裸指针。所有 PCL 对象必须使用其自带的 `Ptr` 类型
-    2. **内存释放**: 算法执行完毕后，确保临时点云变量的指针被正确重置或随作用域销毁
-    3. **PCL 转换限制**: 完整的 `toPCL()`/`fromPCL()` 在大点云下可能导致内存问题，需选择性使用
+:::danger[核心约束]
+1. **智能指针**: 严禁裸指针。所有 PCL 对象必须使用其自带的 `Ptr` 类型
+2. **内存释放**: 算法执行完毕后，确保临时点云变量的指针被正确重置或随作用域销毁
+3. **PCL 转换限制**: 完整的 `toPCL()`/`fromPCL()` 在大点云下可能导致内存问题，需选择性使用
 
+:::
 ### 智能指针使用示例
 
 ```cpp
@@ -299,6 +305,6 @@ auto future = QtConcurrent::run([cloud, params]() {
 
 ## 相关主题
 
-- [项目架构](architecture.md) - 理解整体模块划分
-- [插件开发](../advanced/plugin-development/index.md) - 插件式算法扩展
-- [扩展 Python API](extending-python.md) - 将算法暴露给 Python
+- [项目架构](architecture) - 理解整体模块划分
+- [插件开发](../advanced/plugin-development/intro) - 插件式算法扩展
+- [扩展 Python API](extending-python) - 将算法暴露给 Python

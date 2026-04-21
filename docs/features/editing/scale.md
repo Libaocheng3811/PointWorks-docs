@@ -1,3 +1,7 @@
+---
+title: 尺度缩放
+---
+
 # 尺度缩放
 
 沿 X、Y、Z 轴独立缩放点云的坐标值。可用于单位转换（如米到毫米）或非等比缩放。
@@ -12,7 +16,7 @@
 
 | 参数 | 控件 | 说明 |
 |------|------|------|
-| Scale X | DoubleSpinBox | X 轴缩放因子。1.0=不变，>1 放大，<1 缩小 |
+| Scale X | DoubleSpinBox | X 轴缩放因子。1.0=不变，\>1 放大，\<1 缩小 |
 | Scale Y | DoubleSpinBox | Y 轴缩放因子 |
 | Scale Z | DoubleSpinBox | Z 轴缩放因子 |
 

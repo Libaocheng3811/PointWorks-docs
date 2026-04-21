@@ -1,3 +1,7 @@
+---
+title: Python API 参考
+---
+
 # Python API 参考
 
 本文列出 PointWorks 嵌入式 Python `ct` 模块的完整 API。
@@ -157,9 +161,10 @@ cloud.num_blocks() -> int
 
 ### 全量数据访问（拷贝）
 
-!!! warning "内存注意"
-    以下方法合并所有 Block 数据产生完整拷贝，大点云可能导致内存不足。
+:::warning[内存注意]
+以下方法合并所有 Block 数据产生完整拷贝，大点云可能导致内存不足。
 
+:::
 #### `cloud.to_numpy()`
 
 获取全部点的 XYZ 坐标。
@@ -422,13 +427,14 @@ filter_by_distance("my_cloud", (0.0, 0.0, 0.0), 100.0)
 | `cloud.block_set_*()` | 是 | 脚本独占执行，无并发 |
 | `cloud.refresh()` | 是 | 通过信号触发主线程渲染 |
 
-!!! danger "不可变约束"
-    - 脚本执行期间，被引用的点云不会被 UI 删除
-    - 脚本完成后，所有 hold 和 in-use 标记自动释放
-    - 同一时刻只允许一个脚本执行
+:::danger[不可变约束]
+- 脚本执行期间，被引用的点云不会被 UI 删除
+- 脚本完成后，所有 hold 和 in-use 标记自动释放
+- 同一时刻只允许一个脚本执行
 
+:::
 ## 相关主题
 
-- [Python 控制台](console.md) - 交互式使用
-- [Python 编辑器](editor.md) - 脚本编辑器
-- [扩展 Python API](../../development/extending-python.md) - 如何添加新绑定
+- [Python 控制台](console) - 交互式使用
+- [Python 编辑器](editor) - 脚本编辑器
+- [扩展 Python API](../../development/extending-python) - 如何添加新绑定
