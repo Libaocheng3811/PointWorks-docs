@@ -1,3 +1,7 @@
+---
+title: 大点云处理策略
+---
+
 # 大点云处理策略
 
 本文详细介绍 PointWorks 处理大规模点云（千万级到亿级点）所采用的策略和技术。
@@ -108,9 +112,10 @@ class CloudBlock {
 };
 ```
 
-!!! info "AOS 格式"
-    `CloudBlock` 使用 AOS（Array of Structures）格式存储：`std::vector<PointXYZ>` 而非分离的 `x[]`, `y[]`, `z[]` 数组。这提供了更好的缓存局部性。
+:::info[AOS 格式]
+`CloudBlock` 使用 AOS（Array of Structures）格式存储：`std::vector<PointXYZ>` 而非分离的 `x[]`, `y[]`, `z[]` 数组。这提供了更好的缓存局部性。
 
+:::
 ### 压缩法线
 
 法线使用位域压缩，节省 50% 内存：
@@ -220,7 +225,7 @@ bool isBoxInFrustum(const Box& box, const double* planes) {
 
 ## 全局坐标偏移
 
-大坐标值（如 UTM 坐标 x=500000）会导致 GPU 单精度浮点数精度丢失。详见 [全局坐标偏移](global-shift.md)。
+大坐标值（如 UTM 坐标 x=500000）会导致 GPU 单精度浮点数精度丢失。详见 [全局坐标偏移](global-shift)。
 
 ## 性能调优建议
 
@@ -248,10 +253,11 @@ bool isBoxInFrustum(const Box& box, const double* planes) {
 | 配准耗时 | 先裁剪到重叠区域 |
 | 内存不足 | 减少 `maxPointsPerBlock` 或分块处理 |
 
-!!! warning "PCL 转换限制"
-    PointWorks 内部使用自定义 `Cloud` 数据结构。完整的 `toPCL()` / `fromPCL()` 转换在大点云下可能导致内存翻倍，需谨慎使用。算法模块已针对大点云做了优化。
+:::warning[PCL 转换限制]
+PointWorks 内部使用自定义 `Cloud` 数据结构。完整的 `toPCL()` / `fromPCL()` 转换在大点云下可能导致内存翻倍，需谨慎使用。算法模块已针对大点云做了优化。
 
+:::
 ## 相关主题
 
-- [全局坐标偏移](global-shift.md) - 大坐标精度问题详解
-- [项目架构](../development/architecture.md) - 整体架构设计
+- [全局坐标偏移](global-shift) - 大坐标精度问题详解
+- [项目架构](../development/architecture) - 整体架构设计

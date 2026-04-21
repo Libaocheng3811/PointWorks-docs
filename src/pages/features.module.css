@@ -1,0 +1,107 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.heroTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.heroDesc {
+  font-size: 1.05rem;
+  color: var(--ifm-color-secondary);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cardIcon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--ifm-color-secondary);
+  margin: 0 0 16px;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.cardLink {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+.compareSection {
+  margin-top: 60px;
+}
+
+.compareTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.compareTable th,
+.compareTable td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  text-align: center;
+}
+
+.compareTable th {
+  background: var(--ifm-background-secondary);
+  font-weight: 600;
+}
+
+.compareTable td:first-child {
+  text-align: left;
+  font-weight: 500;
+}

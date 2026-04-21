@@ -1,0 +1,54 @@
+:root {
+  --ifm-font-family-base:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC',
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ifm-font-family-monospace:
+    'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+
+  --ifm-color-primary: #4f8ff7;
+  --ifm-color-primary-dark: #3978d6;
+  --ifm-color-primary-darker: #2d6bc9;
+  --ifm-color-primary-darkest: #1e57a9;
+  --ifm-color-primary-light: #71a2f9;
+  --ifm-color-primary-lighter: #8db5fa;
+  --ifm-color-primary-lightest: #b8d0fc;
+}
+
+html[data-theme='dark'] {
+  --ifm-background-color: #0a0a1a;
+  --ifm-background-secondary: #111827;
+}
+
+table {
+  font-size: 0.9rem;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.markdown img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme='dark'] .markdown img {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}

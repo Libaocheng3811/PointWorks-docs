@@ -1,3 +1,7 @@
+---
+title: 扩展 Python API
+---
+
 # 扩展 Python API
 
 本文介绍如何通过 pybind11 为 PointWorks 添加新的 Python 绑定。
@@ -33,9 +37,10 @@ libs/ 核心 C++ 接口 (Cloud, Algorithm 等)
 
 在 `libs/python/python_bindings.cpp` 的 `PYBIND11_EMBEDDED_MODULE` 块中添加新函数或类。
 
-!!! warning "头文件顺序"
-    必须在包含 pybind11 头文件之前 `#undef slots`，解决 Qt `slots` 宏与 Python `object.h` 的冲突：
+:::warning[头文件顺序]
+必须在包含 pybind11 头文件之前 `#undef slots`，解决 Qt `slots` 宏与 Python `object.h` 的冲突：
 
+:::
 ```cpp
 // libs/python/python_bindings.cpp
 
@@ -258,6 +263,6 @@ target_link_libraries(ct_python
 
 ## 相关主题
 
-- [Python 脚本概述](../advanced/python-scripting/index.md) - Python 架构概览
-- [Python API 参考](../advanced/python-scripting/api-reference.md) - 现有 API 列表
-- [添加新算法](adding-algorithm.md) - 添加算法后将其暴露给 Python
+- [Python 脚本概述](../advanced/python-scripting/intro) - Python 架构概览
+- [Python API 参考](../advanced/python-scripting/api-reference) - 现有 API 列表
+- [添加新算法](adding-algorithm) - 添加算法后将其暴露给 Python

@@ -1,0 +1,96 @@
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.heroTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.heroDesc {
+  font-size: 1.05rem;
+  color: var(--ifm-color-secondary);
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.section p {
+  line-height: 1.8;
+  color: var(--ifm-color-secondary);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.linkCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.linkCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.linkIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.linkTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.linkDesc {
+  font-size: 0.85rem;
+  color: var(--ifm-color-secondary);
+  margin: 0;
+}
+
+.contribSection {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--ifm-background-secondary);
+}
+
+.contribSection h3 {
+  margin: 0 0 12px;
+}
+
+.contribSection p {
+  font-size: 0.9rem;
+  color: var(--ifm-color-secondary);
+  line-height: 1.7;
+  margin: 0;
+}

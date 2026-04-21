@@ -1,3 +1,7 @@
+---
+title: Python 控制台使用
+---
+
 # Python 控制台使用
 
 本文介绍 PointWorks 内置的 Python 交互式控制台。
@@ -112,17 +116,20 @@ array([  0,  28,  56,  85, 113, 141, 170, 198, 226, 255], dtype=uint8)
 
 ## 注意事项
 
-!!! warning "执行环境"
-    - 控制台和编辑器共享同一个 Python 解释器
-    - 控制台中定义的变量在编辑器脚本中可用，反之亦然
-    - 每次启动 PointWorks 时 Python 环境重新初始化
+:::warning[执行环境]
+- 控制台和编辑器共享同一个 Python 解释器
+- 控制台中定义的变量在编辑器脚本中可用，反之亦然
+- 每次启动 PointWorks 时 Python 环境重新初始化
 
-!!! warning "长时间运行的操作"
-    在控制台中执行耗时操作会阻塞控制台输入。长时间脚本建议使用 Python 编辑器执行（支持后台运行和取消）。
+:::
+:::warning[长时间运行的操作]
+在控制台中执行耗时操作会阻塞控制台输入。长时间脚本建议使用 Python 编辑器执行（支持后台运行和取消）。
 
-!!! info "与系统 Python 的关系"
-    PointWorks 嵌入了独立的 Python 3.9 解释器，但会加载系统 Python 3.9 安装的包。可以在控制中 `import numpy` 等第三方库。
+:::
+:::info[与系统 Python 的关系]
+PointWorks 嵌入了独立的 Python 3.9 解释器，但会加载系统 Python 3.9 安装的包。可以在控制中 `import numpy` 等第三方库。
 
+:::
 ## 快捷键
 
 | 快捷键 | 功能 |
@@ -134,6 +141,6 @@ array([  0,  28,  56,  85, 113, 141, 170, 198, 226, 255], dtype=uint8)
 
 ## 相关主题
 
-- [Python 编辑器](editor.md) - 编写完整脚本
-- [Python API 参考](api-reference.md) - 完整 API 文档
-- [Python 自动化实战](../../tutorials/python-automation.md) - 实战示例
+- [Python 编辑器](editor) - 编写完整脚本
+- [Python API 参考](api-reference) - 完整 API 文档
+- [Python 自动化实战](../../tutorials/python-automation) - 实战示例

@@ -1,0 +1,70 @@
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.heroTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.heroDesc {
+  font-size: 1.05rem;
+  color: var(--ifm-color-secondary);
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.section p {
+  line-height: 1.8;
+  color: var(--ifm-color-secondary);
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.techTag {
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--ifm-font-family-monospace);
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.license {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--ifm-background-secondary);
+  margin-bottom: 40px;
+}
+
+.license pre {
+  background: var(--ifm-code-background);
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}

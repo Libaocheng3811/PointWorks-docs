@@ -1,3 +1,7 @@
+---
+title: 常见问题
+---
+
 # 常见问题
 
 本文收集 PointWorks 开发和使用中的常见问题及解决方案。
@@ -136,7 +140,7 @@ git submodule update --init --recursive
 2. 或通过选项菜单手动设置偏移
 3. 确保所有点云使用相同的偏移值
 
-详见 [全局坐标偏移](../advanced/global-shift.md)。
+详见 [全局坐标偏移](../advanced/global-shift)。
 
 ### Python 控制台无法启动
 
@@ -219,7 +223,7 @@ menu->addAction("My Action", [this]() {
 
 ## 相关主题
 
-- [编译构建](build.md) - 详细编译步骤
-- [项目架构](architecture.md) - 理解模块关系
-- [大点云处理](../advanced/large-pointcloud.md) - 性能优化
-- [全局坐标偏移](../advanced/global-shift.md) - 坐标精度问题
+- [编译构建](build) - 详细编译步骤
+- [项目架构](architecture) - 理解模块关系
+- [大点云处理](../advanced/large-pointcloud) - 性能优化
+- [全局坐标偏移](../advanced/global-shift) - 坐标精度问题

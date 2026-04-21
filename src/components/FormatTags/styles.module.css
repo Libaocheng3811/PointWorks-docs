@@ -1,0 +1,41 @@
+.section {
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 32px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.tag {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: var(--ifm-font-family-monospace);
+  background: rgba(79, 143, 247, 0.1);
+  color: var(--ifm-color-primary);
+  border: 1px solid rgba(79, 143, 247, 0.2);
+  transition: transform 0.2s;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--ifm-color-secondary);
+  margin: 0;
+}

@@ -1,3 +1,7 @@
+---
+title: 添加新文件格式
+---
+
 # 添加新文件格式
 
 本文介绍如何为 PointWorks 添加新的点云或模型文件格式支持。
@@ -40,9 +44,10 @@ libs/io/
   projectfile.h/cpp     # 项目文件保存/加载
 ```
 
-!!! info "自动源文件注册"
-    ct_io 的 CMakeLists.txt 使用 `file(GLOB *.cpp)`，新增 .cpp 文件无需手动在 CMakeLists.txt 中注册。
+:::info[自动源文件注册]
+ct_io 的 CMakeLists.txt 使用 `file(GLOB *.cpp)`，新增 .cpp 文件无需手动在 CMakeLists.txt 中注册。
 
+:::
 ## 添加点云格式
 
 ### 第一步：声明加载/保存方法
@@ -303,6 +308,6 @@ pt.z += shift.z();
 
 ## 相关主题
 
-- [项目架构](architecture.md) - FileIO 在架构中的位置
-- [大点云处理](../advanced/large-pointcloud.md) - 流式加载和八叉树
-- [全局坐标偏移](../advanced/global-shift.md) - 坐标偏移详解
+- [项目架构](architecture) - FileIO 在架构中的位置
+- [大点云处理](../advanced/large-pointcloud) - 流式加载和八叉树
+- [全局坐标偏移](../advanced/global-shift) - 坐标偏移详解

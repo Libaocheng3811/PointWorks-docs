@@ -1,3 +1,7 @@
+---
+title: 编译构建
+---
+
 # 编译构建
 
 本文详细介绍 PointWorks 的编译构建流程，包括依赖安装、CMake 配置和编译选项。
@@ -15,9 +19,10 @@
 | pybind11 | 2.11+ | Python C++ 绑定（git submodule） |
 | OpenMP | - | 并行计算（MSVC 内置） |
 
-!!! warning "Python 版本"
-    Python 版本必须精确为 3.9.x，pybind11 要求编译时和运行时 Python 版本完全匹配。
+:::warning[Python 版本]
+Python 版本必须精确为 3.9.x，pybind11 要求编译时和运行时 Python 版本完全匹配。
 
+:::
 ## 编译步骤
 
 ### 1. 克隆仓库
@@ -105,9 +110,10 @@ PointWorks 使用以下编译器标志：
 | ct_python | OBJECT | - | 直接链接到 exe |
 | pointworks | EXECUTABLE | `pointworks.exe` | 主程序 |
 
-!!! info "Debug 后缀"
-    Debug 版本的库自动添加 `d` 后缀（如 `ct_cored.dll`），以便与 Release 版本共存于同一目录。
+:::info[Debug 后缀]
+Debug 版本的库自动添加 `d` 后缀（如 `ct_cored.dll`），以便与 Release 版本共存于同一目录。
 
+:::
 ## 预处理器定义
 
 | 宏 | 值 | 说明 |
@@ -208,5 +214,5 @@ cmake -DMY_NATIVE_PYTHON_DIR="C:/Users/me/AppData/Local/Programs/Python/Python39
 
 ## 相关主题
 
-- [项目架构](architecture.md) - 理解项目结构
-- [常见问题](faq.md) - 更多编译和运行时问题
+- [项目架构](architecture) - 理解项目结构
+- [常见问题](faq) - 更多编译和运行时问题
