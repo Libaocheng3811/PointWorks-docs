@@ -1,25 +1,26 @@
+/* ===== Hero Banner ===== */
 .heroBanner {
   position: relative;
   overflow: hidden;
-  background: #050510;
-  padding: 100px 24px 120px;
-  text-align: center;
+  min-height: 100vh;
+  background: #0B0F19;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
+/* Grid background */
 .heroBanner::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
-  animation: gridMove 25s linear infinite;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 80%);
+  animation: gridMove 30s linear infinite;
+  mask-image: radial-gradient(ellipse 80% 70% at 40% 50%, black 10%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 40% 50%, black 10%, transparent 80%);
 }
 
 @keyframes gridMove {
@@ -27,117 +28,241 @@
   100% { transform: translateY(64px); }
 }
 
+/* ===== Glow Mesh ===== */
 .heroGlow {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 600px 400px at 30% 20%, rgba(0, 212, 255, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 500px at 70% 30%, rgba(123, 97, 255, 0.10) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 300px at 50% 60%, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+    radial-gradient(ellipse 700px 500px at 25% 30%, rgba(0, 242, 254, 0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 65% 25%, rgba(123, 97, 255, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 50% 70%, rgba(0, 255, 136, 0.04) 0%, transparent 70%);
 }
 
-.heroContent {
+/* ===== Floating Particles ===== */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dot {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-neon-cyan);
+  animation: floatUp linear infinite;
+}
+
+.dot:nth-child(1)  { left: 5%;  animation-duration: 18s; animation-delay: 0s;   opacity: 0.2; }
+.dot:nth-child(2)  { left: 15%; animation-duration: 22s; animation-delay: 2s;   opacity: 0.3; }
+.dot:nth-child(3)  { left: 25%; animation-duration: 16s; animation-delay: 4s;   opacity: 0.15; }
+.dot:nth-child(4)  { left: 35%; animation-duration: 20s; animation-delay: 1s;   opacity: 0.25; }
+.dot:nth-child(5)  { left: 45%; animation-duration: 24s; animation-delay: 3s;   opacity: 0.2; }
+.dot:nth-child(6)  { left: 55%; animation-duration: 19s; animation-delay: 5s;   opacity: 0.35; }
+.dot:nth-child(7)  { left: 65%; animation-duration: 21s; animation-delay: 0s;   opacity: 0.15; }
+.dot:nth-child(8)  { left: 75%; animation-duration: 17s; animation-delay: 2.5s; opacity: 0.3; }
+.dot:nth-child(9)  { left: 85%; animation-duration: 23s; animation-delay: 1.5s; opacity: 0.2; }
+.dot:nth-child(10) { left: 95%; animation-duration: 20s; animation-delay: 4.5s; opacity: 0.25; }
+.dot:nth-child(11) { left: 10%; animation-duration: 25s; animation-delay: 6s;   opacity: 0.1; }
+.dot:nth-child(12) { left: 50%; animation-duration: 15s; animation-delay: 7s;   opacity: 0.2; }
+
+@keyframes floatUp {
+  0%   { transform: translateY(100vh) translateX(0);   opacity: 0; }
+  10%  { opacity: 0.3; }
+  90%  { opacity: 0.3; }
+  100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+}
+
+/* ===== Inner Layout ===== */
+.heroInner {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 48px;
+  gap: 48px;
+}
+
+/* ===== Left Content ===== */
+.heroLeft {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .heroLogo {
-  width: 96px;
-  height: 96px;
-  margin-bottom: 28px;
-  border-radius: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
   animation: logoPulse 4s ease-in-out infinite;
 }
 
 @keyframes logoPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 0 16px rgba(0, 242, 254, 0.25)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
   }
   50% {
-    filter: drop-shadow(0 0 32px rgba(0, 212, 255, 0.5)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 0 28px rgba(0, 242, 254, 0.45)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
   }
+}
+
+.brandName {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-neon-cyan);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .heroTitle {
-  font-size: 3.8rem;
+  font-size: 3.2rem;
   font-weight: 800;
-  margin: 0 0 16px;
-  background: linear-gradient(135deg, #ffffff 0%, #00D4FF 50%, #7B61FF 100%);
-  background-size: 200% 200%;
+  margin: 0 0 20px;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--color-neon-cyan) 0%, var(--color-accent-violet) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: -0.02em;
-  animation: titleShimmer 6s ease-in-out infinite;
-}
-
-@keyframes titleShimmer {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 .heroSubtitle {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--color-text-secondary);
-  margin: 0 0 44px;
-  line-height: 1.6;
+  margin: 0 0 24px;
+  line-height: 1.7;
+}
+
+.versionTag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-family: var(--ifm-font-family-monospace);
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 32px;
 }
 
 .heroButtons {
   display: flex;
-  gap: 16px;
-  justify-content: center;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
+/* ===== Buttons ===== */
 .btnPrimary {
   display: inline-flex;
   align-items: center;
-  padding: 14px 36px;
+  padding: 14px 32px;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-violet) 100%);
+  background: linear-gradient(135deg, var(--color-neon-cyan) 0%, var(--color-accent-violet) 100%);
   color: #fff;
-  transition: transform 0.25s, box-shadow 0.25s;
   position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.btnPrimary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btnPrimary:hover::before {
+  left: 100%;
 }
 
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.35), 0 0 60px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 242, 254, 0.35), 0 0 60px rgba(0, 242, 254, 0.1);
 }
 
 .btnSecondary {
   display: inline-flex;
   align-items: center;
-  padding: 14px 36px;
+  padding: 14px 32px;
   border-radius: 10px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.04);
   color: var(--color-text-primary);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(0, 242, 254, 0.2);
   transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s, background 0.25s;
 }
 
 .btnSecondary:hover {
   transform: translateY(-2px);
-  border-color: rgba(0, 212, 255, 0.5);
-  box-shadow: 0 0 24px rgba(0, 212, 255, 0.1);
-  background: rgba(0, 212, 255, 0.06);
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.1);
+  background: rgba(0, 242, 254, 0.06);
 }
 
-.scrollHint {
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: color 0.25s;
+}
+
+.btnGhost:hover {
+  color: var(--color-text-primary);
+}
+
+/* ===== Right: 3D Point Cloud Visual ===== */
+.heroRight {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 640px;
+  max-height: 560px;
+}
+
+/* ===== Scroll Hint ===== */
+.scrollHint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
-  margin-top: 56px;
   animation: bounce 2.5s ease-in-out infinite;
-  color: rgba(0, 212, 255, 0.3);
+  color: rgba(0, 242, 254, 0.3);
   opacity: 0.6;
 }
 
@@ -146,48 +271,63 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
 }
 
+/* ===== Responsive ===== */
 @media (prefers-reduced-motion: reduce) {
-  .heroBanner::before,
-  .heroLogo,
-  .heroTitle,
-  .scrollHint { animation: none; }
+  .heroBanner::before, .heroLogo, .scrollHint,
+  .dot { animation: none; }
 }
 
-@media (max-width: 768px) {
-  .heroBanner { padding: 72px 20px 80px; }
-  .heroTitle { font-size: 2.6rem; }
-  .heroSubtitle { font-size: 1.1rem; }
-  .heroLogo { width: 72px; height: 72px; }
+@media (max-width: 960px) {
+  .heroInner {
+    flex-direction: column;
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .heroLeft { flex: none; max-width: 100%; }
+  .heroRight { display: none; }
+  .heroTitle { font-size: 2.4rem; }
+  .heroButtons { justify-content: center; }
+  .brandRow { justify-content: center; }
+  .versionTag { margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 480px) {
+  .heroTitle { font-size: 1.8rem; }
+  .heroSubtitle { font-size: 1rem; }
   .heroButtons { flex-direction: column; align-items: center; }
+  .btnPrimary, .btnSecondary { width: 100%; justify-content: center; }
 }
 
-/* Light mode hero */
+/* ===== Light Mode ===== */
 [data-theme='light'] .heroBanner {
   background: linear-gradient(180deg, #f0f4ff 0%, #e8ecf8 100%);
 }
 [data-theme='light'] .heroGlow {
   background:
-    radial-gradient(ellipse 600px 400px at 30% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 500px at 70% 30%, rgba(123, 97, 255, 0.06) 0%, transparent 70%);
+    radial-gradient(ellipse 700px 500px at 25% 30%, rgba(0, 180, 220, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 65% 25%, rgba(123, 97, 255, 0.04) 0%, transparent 70%);
 }
-[data-theme='light'] .heroTitle {
-  background: linear-gradient(135deg, #0d0d20 0%, #006680 50%, #4338ca 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: titleShimmer 6s ease-in-out infinite;
+[data-theme='light'] .heroTitle { color: #0d0d20; }
+[data-theme='light'] .highlight {
+  background: linear-gradient(135deg, #006680 0%, #4338ca 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 [data-theme='light'] .heroSubtitle { color: rgba(30, 41, 59, 0.65); }
+[data-theme='light'] .versionTag {
+  background: rgba(30, 41, 59, 0.04);
+  color: rgba(30, 41, 59, 0.5);
+  border-color: rgba(30, 41, 59, 0.08);
+}
 [data-theme='light'] .heroLogo { animation: none; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15)); }
+[data-theme='light'] .brandName { color: #006680; }
 [data-theme='light'] .heroBanner::before {
   background-image:
-    linear-gradient(rgba(0, 140, 180, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 140, 180, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(0, 140, 180, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 140, 180, 0.05) 1px, transparent 1px);
 }
 [data-theme='light'] .btnSecondary {
   background: rgba(30, 41, 59, 0.04);
@@ -198,4 +338,7 @@
   background: rgba(0, 140, 180, 0.06);
   border-color: rgba(0, 140, 180, 0.4);
 }
+[data-theme='light'] .btnGhost { color: rgba(30, 41, 59, 0.5); }
+[data-theme='light'] .btnGhost:hover { color: rgba(30, 41, 59, 0.85); }
 [data-theme='light'] .scrollHint { color: rgba(30, 41, 59, 0.25); }
+[data-theme='light'] .dot { display: none; }

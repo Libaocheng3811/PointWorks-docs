@@ -5,27 +5,30 @@
   --ifm-font-family-monospace:
     'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
 
-  --ifm-color-primary: #00D4FF;
-  --ifm-color-primary-dark: #00b8e6;
-  --ifm-color-primary-darker: #009dcc;
-  --ifm-color-primary-darkest: #0082b3;
-  --ifm-color-primary-light: #33dfff;
-  --ifm-color-primary-lighter: #66e8ff;
-  --ifm-color-primary-lightest: #99f0ff;
+  --ifm-color-primary: #00F2FE;
+  --ifm-color-primary-dark: #00cdd6;
+  --ifm-color-primary-darker: #00a8b0;
+  --ifm-color-primary-darkest: #00848a;
+  --ifm-color-primary-light: #33f5ff;
+  --ifm-color-primary-lighter: #66f8ff;
+  --ifm-color-primary-lightest: #99fbff;
 
   --color-accent-cyan: #00D4FF;
+  --color-neon-cyan: #00F2FE;
   --color-accent-violet: #7B61FF;
   --color-accent-green: #00FF88;
   --color-accent-orange: #FF9100;
 
-  --color-text-primary: #E8E8F0;
-  --color-text-secondary: #9898B0;
+  --color-text-primary: #E6EDF3;
+  --color-text-secondary: #8B949E;
+  --color-surface-elevated: rgba(22, 27, 34, 0.8);
+  --color-border-subtle: rgba(48, 54, 61, 0.6);
 }
 
 html[data-theme='dark'] {
-  --ifm-background-color: #050510;
-  --ifm-background-secondary: #0a0a1a;
-  --ifm-background-surface-color: #0d0d20;
+  --ifm-background-color: #0B0F19;
+  --ifm-background-secondary: #0D1117;
+  --ifm-background-surface-color: #161B22;
 }
 
 table {
@@ -58,19 +61,19 @@ html[data-theme='dark'] .markdown img {
 }
 
 *:focus-visible {
-  outline: 2px solid var(--color-accent-cyan);
+  outline: 2px solid var(--color-neon-cyan);
   outline-offset: 2px;
 }
 
 html[data-theme='dark'] .navbar {
-  background: rgba(5, 5, 16, 0.85);
+  background: rgba(11, 15, 25, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 242, 254, 0.08);
 }
 
 html[data-theme='dark'] .navbar__link:hover,
 html[data-theme='dark'] .navbar__link--active {
-  color: var(--color-accent-cyan);
-  text-shadow: 0 0 12px rgba(0, 212, 255, 0.3);
+  color: var(--color-neon-cyan);
+  text-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
 }

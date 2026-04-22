@@ -2,16 +2,16 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  max-width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(22, 27, 34, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-border-subtle);
   border-radius: 16px;
   padding: 28px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -22,6 +22,7 @@
   overflow: hidden;
 }
 
+/* Mouse-follow glow */
 .card::before {
   content: '';
   position: absolute;
@@ -29,7 +30,7 @@
   border-radius: 16px;
   opacity: 0;
   background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(0, 212, 255, 0.06) 0%, transparent 60%);
+    rgba(0, 242, 254, 0.06) 0%, transparent 60%);
   transition: opacity 0.3s ease;
 }
 
@@ -37,10 +38,27 @@
   opacity: 1;
 }
 
+/* Sweep light effect */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.04), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  left: 100%;
+}
+
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 212, 255, 0.25);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 212, 255, 0.06);
+  border-color: rgba(0, 242, 254, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 242, 254, 0.06);
 }
 
 .cardWide {
@@ -56,8 +74,13 @@
   font-size: 1.5rem;
   margin-bottom: 16px;
   border-radius: 12px;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.15);
 }
 
 .cardTitle {
@@ -104,6 +127,10 @@
 [data-theme='light'] .card::before {
   background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
     rgba(0, 180, 210, 0.05) 0%, transparent 60%);
+}
+
+[data-theme='light'] .card::after {
+  background: linear-gradient(90deg, transparent, rgba(0, 180, 210, 0.03), transparent);
 }
 
 [data-theme='light'] .icon {

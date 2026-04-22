@@ -113,9 +113,11 @@ export default {
       title: 'PointWorks',
       logo: { alt: 'PointWorks', src: 'img/logo.svg' },
       items: [
-        { type: 'docSidebar', sidebarId: 'defaultSidebar', label: '文档', position: 'left' },
-        { to: '/download', label: '下载', position: 'left' },
+        { to: '/showcase', label: '展示', position: 'left' },
         { to: '/features', label: '功能', position: 'left' },
+        { to: '/python-api', label: 'Python API', position: 'left' },
+        { to: '/download', label: '下载', position: 'left' },
+        { type: 'docSidebar', sidebarId: 'defaultSidebar', label: '文档', position: 'left' },
         { to: '/community', label: '社区', position: 'left' },
         { href: 'https://github.com/Libaocheng3811/CloudTool2', label: 'GitHub', position: 'right' },
       ],
@@ -140,6 +142,7 @@ export default {
           title: '产品',
           items: [
             { label: '功能介绍', to: '/features' },
+            { label: 'Python API', to: '/python-api' },
             { label: '下载', to: '/download' },
             { label: '更新日志', to: '/blog' },
           ],
