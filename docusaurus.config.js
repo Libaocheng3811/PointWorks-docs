@@ -5,7 +5,7 @@ export default {
   tagline: '专业三维点云处理软件',
   url: 'https://libaocheng3811.github.io',
   baseUrl: '/PointWorks-docs/',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/logo.png',
   trailingSlash: false,
   organizationName: 'Libaocheng3811',
   projectName: 'PointWorks-docs',
@@ -17,6 +17,14 @@ export default {
   },
 
   headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/PointWorks-docs/img/logo.svg',
+      },
+    },
     {
       tagName: 'script',
       attributes: { type: 'application/ld+json' },
@@ -100,7 +108,7 @@ export default {
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
-      respectPrefersColorScheme: true,
+      respectPrefersColorScheme: false,
     },
 
     prism: {
