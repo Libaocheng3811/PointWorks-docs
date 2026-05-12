@@ -54,8 +54,8 @@ const plugins = [
 ];
 
 const channels = [
-  { icon: '📂', title: 'GitHub 仓库', desc: '源代码、Issues、Discussions', url: 'https://github.com/Libaocheng3811/CloudTool2' },
-  { icon: '📋', title: '问题反馈', desc: '提交 Bug 报告或功能建议', url: 'https://github.com/Libaocheng3811/CloudTool2/issues' },
+  { icon: '📂', title: 'GitHub 仓库', desc: '源代码、Issues、Discussions', url: 'https://github.com/Libaocheng3811/PointWorks' },
+  { icon: '📋', title: '问题反馈', desc: '提交 Bug 报告或功能建议', url: 'https://github.com/Libaocheng3811/PointWorks/issues' },
   { icon: '📖', title: '文档', desc: '完整的使用说明和开发指南', url: '/docs/intro' },
   { icon: '📰', title: '更新日志', desc: '版本发布记录和技术文章', url: '/blog' },
   { icon: '❓', title: '常见问题', desc: '使用中遇到的问题解答', url: '/faq' },

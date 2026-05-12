@@ -114,7 +114,7 @@ export default function ShowcasePage() {
             有使用 PointWorks 的精彩案例？欢迎提交到我们的社区展示
           </p>
           <a
-            href="https://github.com/Libaocheng3811/CloudTool2"
+            href="https://github.com/Libaocheng3811/PointWorks"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.ctaBtn}

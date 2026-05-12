@@ -37,7 +37,7 @@ export default function Hero() {
             媲美 CloudCompare 的极速性能，融合原生 Python 生态
           </p>
           <div className={styles.versionTag}>
-            v0.1.0 · 开源免费 · MIT License
+            v0.9.0-beta · 开源免费 · MIT License
           </div>
           <div className={styles.heroButtons}>
             <Link to="/download" className={styles.btnPrimary}>
@@ -50,7 +50,7 @@ export default function Hero() {
               快速开始
             </Link>
             <a
-              href="https://github.com/Libaocheng3811/CloudTool2"
+              href="https://github.com/Libaocheng3811/PointWorks"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.btnGhost}

@@ -28,8 +28,8 @@ Python 版本必须精确为 3.9.x，pybind11 要求编译时和运行时 Python
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/TestDemoCommunity/CloudTool2.git
-cd CloudTool2
+git clone https://github.com/Libaocheng3811/PointWorks.git
+cd PointWorks
 
 # 初始化子模块（pybind11）
 git submodule update --init --recursive

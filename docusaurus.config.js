@@ -35,7 +35,7 @@ export default {
         applicationCategory: 'DesktopApplication',
         operatingSystem: 'Windows',
         description: '专业三维点云处理软件',
-        softwareVersion: '0.1.0',
+        softwareVersion: '0.9.0-beta',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'CNY' },
         programmingLanguage: 'C++',
       }),
@@ -48,7 +48,7 @@ export default {
         '@type': 'Organization',
         name: 'PointWorks',
         logo: 'https://libaocheng3811.github.io/PointWorks-docs/img/logo.svg',
-        sameAs: ['https://github.com/Libaocheng3811/CloudTool2'],
+        sameAs: ['https://github.com/Libaocheng3811/PointWorks'],
       }),
     },
   ],
@@ -127,7 +127,7 @@ export default {
         { to: '/download', label: '下载', position: 'left' },
         { type: 'docSidebar', sidebarId: 'defaultSidebar', label: '文档', position: 'left' },
         { to: '/community', label: '社区', position: 'left' },
-        { href: 'https://github.com/Libaocheng3811/CloudTool2', label: 'GitHub', position: 'right' },
+        { href: 'https://github.com/Libaocheng3811/PointWorks', label: 'GitHub', position: 'right' },
       ],
     },
 
@@ -167,7 +167,7 @@ export default {
         {
           title: '社区',
           items: [
-            { label: 'GitHub', href: 'https://github.com/Libaocheng3811/CloudTool2' },
+            { label: 'GitHub', href: 'https://github.com/Libaocheng3811/PointWorks' },
             { label: '常见问题', to: '/faq' },
             { label: '贡献指南', to: '/community' },
           ],

@@ -8,73 +8,81 @@ const tabs = [
     key: 'filter',
     label: '加载滤波',
     code: [
-      { text: 'import pointworks as pw', cls: 'kw' },
+      { text: 'import ct', cls: 'kw' },
       { text: '' },
-      { text: '# 加载点云', cls: 'comment' },
-      { text: 'pcd = pw.load("city_scan.las")', cls: '' },
-      { text: 'print(f"点数: {pcd.size:,}")', cls: '' },
+      { text: '# 加载点云文件', cls: 'comment' },
+      { text: 'ct.load_cloud("D:/data/scan.las")', cls: '' },
       { text: '' },
       { text: '# 体素降采样', cls: 'comment' },
-      { text: 'pcd = pcd.voxel_downsample(leaf_size=0.05)', cls: '' },
+      { text: 'sampled = ct.voxel_grid("scan", 0.5, 0.5, 0.5)', cls: '' },
+      { text: 'sampled.show("sampled")', cls: '' },
       { text: '' },
       { text: '# 统计离群点移除', cls: 'comment' },
-      { text: 'pcd, _ = pcd.remove_statistical_outlier(', cls: '' },
-      { text: '    nb_neighbors=20, std_ratio=2.0)', cls: '' },
-      { text: 'print(f"滤波后点数: {pcd.size:,}")', cls: '' },
+      { text: 'clean = ct.statistical_outlier_removal(', cls: '' },
+      { text: '    "sampled", nr_k=30, stddev_mult=2.0)', cls: '' },
+      { text: 'clean.show("clean")', cls: '' },
+      { text: '' },
+      { text: '# 保存结果', cls: 'comment' },
+      { text: 'ct.save_cloud("clean", "D:/output/clean.laz")', cls: '' },
     ],
   },
   {
     key: 'icp',
     label: 'ICP 配准',
     code: [
-      { text: 'import pointworks as pw', cls: 'kw' },
+      { text: 'import ct', cls: 'kw' },
       { text: '' },
-      { text: '# 加载源点云和目标点云', cls: 'comment' },
-      { text: 'source = pw.load("scan_01.las")', cls: '' },
-      { text: 'target = pw.load("scan_02.las")', cls: '' },
+      { text: '# 加载两期数据', cls: 'comment' },
+      { text: 'ct.load_cloud("before.las")', cls: '' },
+      { text: 'ct.load_cloud("after.las")', cls: '' },
       { text: '' },
-      { text: '# 粗配准 (IA-RANSAC)', cls: 'comment' },
-      { text: 'coarse = pw.global_registration(', cls: '' },
-      { text: '    source, target, voxel_size=0.5)', cls: '' },
+      { text: '# 粗配准 (NDT)', cls: 'comment' },
+      { text: 'coarse = ct.ndt("before", "after",', cls: '' },
+      { text: '    resolution=2.0, step_size=0.1)', cls: '' },
       { text: '' },
       { text: '# 精配准 (ICP)', cls: 'comment' },
-      { text: 'result = pw.icp_registration(', cls: '' },
-      { text: '    source, target,', cls: '' },
-      { text: '    init_transform=coarse.transform)', cls: '' },
-      { text: 'print(f"RMSE: {result.fitness:.6f}")', cls: '' },
+      { text: 'result = ct.icp("before", "after",', cls: '' },
+      { text: '    max_iterations=100,', cls: '' },
+      { text: '    correspondence_distance=0.5)', cls: '' },
+      { text: '' },
+      { text: 'if result:', cls: '' },
+      { text: '    ct.printI(f"RMSE: {result[\'score\']:.6f}")', cls: '' },
+      { text: '    result["aligned"].show("aligned")', cls: '' },
     ],
   },
   {
     key: 'batch',
-    label: '批量处理',
+    label: '批量地面分割',
     code: [
-      { text: 'import pointworks as pw', cls: 'kw' },
-      { text: 'from pathlib import Path', cls: 'kw' },
+      { text: 'import ct', cls: 'kw' },
       { text: '' },
-      { text: '# 遍历文件夹中所有 LAS 文件', cls: 'comment' },
-      { text: 'las_dir = Path("./scans/")', cls: '' },
+      { text: '# 启用脚本模式（结果不自动显示）', cls: 'comment' },
+      { text: 'ct.set_script_mode(True)', cls: '' },
       { text: '' },
-      { text: 'for las_file in las_dir.glob("*.las"):', cls: '' },
-      { text: '    pcd = pw.load(str(las_file))', cls: '' },
+      { text: 'ct.load_cloud("D:/data/scan.las")', cls: '' },
       { text: '' },
-      { text: '    # 自动地面分割', cls: 'comment' },
-      { text: '    ground = pcd.filter(method="csf")', cls: '' },
+      { text: '# CSF 地面分割', cls: 'comment' },
+      { text: 'result = ct.csf_filter("scan",', cls: '' },
+      { text: '    cloth_resolution=1.0,', cls: '' },
+      { text: '    rigidness=2,', cls: '' },
+      { text: '    iterations=300)', cls: '' },
       { text: '' },
-      { text: '    # 保存结果', cls: 'comment' },
-      { text: '    out = las_dir / "ground" / las_file.name', cls: '' },
-      { text: '    ground.save(str(out))', cls: '' },
-      { text: '    print(f"完成: {las_file.name}")', cls: '' },
+      { text: '# 保存地面点和非地面点', cls: 'comment' },
+      { text: 'if result["ground"]:', cls: '' },
+      { text: '    result["ground"].show("ground")', cls: '' },
+      { text: '    ct.save_cloud("ground",', cls: '' },
+      { text: '        "D:/output/ground.laz")', cls: '' },
     ],
   },
 ];
 
 const capabilities = [
-  { icon: '🔌', title: '完整 API 覆盖', desc: '全部 C++ 算法通过 pybind11 暴露为 Python 接口' },
-  { icon: '📓', title: 'Jupyter 兼容', desc: '在 Notebook 中交互式探索点云数据' },
-  { icon: '⚡', title: '批处理自动化', desc: '编写脚本批量处理数百个点云文件' },
-  { icon: '🧩', title: '自定义算法', desc: '结合 NumPy、SciPy 扩展点云处理流程' },
+  { icon: '🔌', title: '完整 API 覆盖', desc: '140+ 个函数覆盖全部 C++ 算法，通过 pybind11 原生性能调用' },
+  { icon: '⚡', title: '批处理自动化', desc: '编写脚本批量处理数百个点云文件，支持进度反馈' },
+  { icon: '🧩', title: '自定义算法', desc: '结合 NumPy、SciPy 在 Python 中实现自定义点云处理流程' },
   { icon: '👁️', title: '实时预览', desc: '代码执行后即时在 3D 视窗中查看结果' },
-  { icon: '📦', title: '插件开发', desc: '开发自定义插件并分享到社区' },
+  { icon: '🔗', title: '链式调用', desc: 'ct.Cloud 便捷方法支持链式操作，简化流水线代码' },
+  { icon: '📦', title: '多格式支持', desc: '支持 LAS/LAZ/E57/PLY/PCD/TXT/OBJ/STL 等格式读写' },
 ];
 
 export default function PythonAPIPage() {
@@ -84,7 +92,7 @@ export default function PythonAPIPage() {
   const currentTab = tabs.find((t) => t.key === activeTab);
 
   const handleCopy = () => {
-    const text = 'pip install pointworks';
+    const text = 'import ct';
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
@@ -98,11 +106,11 @@ export default function PythonAPIPage() {
           <div className={styles.heroGlow} />
           <h1 className={styles.heroTitle}>Python 驱动的点云处理</h1>
           <p className={styles.heroDesc}>
-            内嵌 Python 3.9 + pybind11 · 完整调用全部 C++ 算法 · 与原生性能一致
+            内嵌 Python 3.9 + pybind11 · 140+ 个 API · 与 C++ 原生性能一致
           </p>
           <div className={styles.installBlock}>
             <code className={styles.installCode}>
-              <span className={styles.installPrompt}>$</span> pip install pointworks
+              <span className={styles.installPrompt}>{'>>> '}</span> import ct
             </code>
             <button className={styles.copyBtn} onClick={handleCopy}>
               {copied ? '已复制' : '复制'}
@@ -136,7 +144,7 @@ export default function PythonAPIPage() {
                 <div key={i} className={styles.codeLine}>
                   <span className={styles.lineNum}>{i + 1}</span>
                   <span className={`${styles.lineContent} ${line.cls === 'comment' ? styles.comment : line.cls === 'kw' ? styles.kw : ''}`}>
-                    {line.text || ' '}
+                    {line.text || ' '}
                   </span>
                 </div>
               ))}

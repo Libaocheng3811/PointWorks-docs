@@ -17,7 +17,7 @@ title: 安装指南
 
 ### 方式一：直接下载
 
-前往 [GitHub Releases](https://github.com/TestDemoCommunity/CloudTool2/releases) 页面下载最新版本的安装包。
+前往 [GitHub Releases](https://github.com/Libaocheng3811/PointWorks/releases) 页面下载最新版本的安装包。
 
 ### 方式二：从源码编译
 
@@ -33,8 +33,8 @@ title: 安装指南
 
 ```bash
 # 克隆仓库
-git clone https://github.com/TestDemoCommunity/CloudTool2.git
-cd CloudTool2
+git clone https://github.com/Libaocheng3811/PointWorks.git
+cd PointWorks
 
 # 创建构建目录
 mkdir build && cd build

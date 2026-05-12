@@ -66,7 +66,7 @@ copies or substantial portions of the Software.`}</pre>
   title = {PointWorks: An Open-Source 3D Point Cloud Processing Software},
   author = {PointWorks Team},
   year = {${new Date().getFullYear()}},
-  url = {https://github.com/Libaocheng3811/CloudTool2}
+  url = {https://github.com/Libaocheng3811/PointWorks}
 }`}</pre>
         </div>
       </main>

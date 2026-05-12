@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 PointWorks official documentation site built with **MkDocs Material**. Documents a professional 3D point cloud processing desktop application (Qt5/VTK/PCL). All content is written in **Chinese (Simplified)**. Deployed to GitHub Pages at `https://testdemocommunity.github.io/PointWorks-docs/`.
 
-Related code repository: [CloudTool2](https://github.com/TestDemoCommunity/CloudTool2)
+Related code repository: [PointWorks](https://github.com/Libaocheng3811/PointWorks)
 
 ## Commands
 

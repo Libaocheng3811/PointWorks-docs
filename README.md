@@ -60,4 +60,4 @@ npm run build
 
 ## 相关仓库
 
-- [CloudTool2](https://github.com/TestDemoCommunity/CloudTool2) — PointWorks 主代码仓库
+- [PointWorks](https://github.com/Libaocheng3811/PointWorks) — PointWorks 主代码仓库

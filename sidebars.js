@@ -151,6 +151,8 @@ export default {
             'advanced/python-scripting/console',
             'advanced/python-scripting/editor',
             'advanced/python-scripting/api-reference',
+            'advanced/python-scripting/api-algorithms',
+            'advanced/python-scripting/api-classes',
           ],
         },
         'advanced/plugin-development/intro',

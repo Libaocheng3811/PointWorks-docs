@@ -26,7 +26,7 @@ const faqData = [
   },
   {
     q: '如何报告 Bug 或建议新功能？',
-    a: '请通过 GitHub Issues 提交：https://github.com/Libaocheng3811/CloudTool2/issues 。提交时请附上软件版本、操作系统和复现步骤。',
+    a: '请通过 GitHub Issues 提交：https://github.com/Libaocheng3811/PointWorks/issues 。提交时请附上软件版本、操作系统和复现步骤。',
   },
   {
     q: 'PointWorks 和 CloudCompare 有什么区别？',
